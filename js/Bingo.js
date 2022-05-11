@@ -52,7 +52,7 @@
         soundManager.playDrum();
 
         isPlaying = true;
-        this.className = 'inactive';
+        this.className = 'btn inactive';
         btn0.className = 'btn';
 
         panel1.className = 'panel';
@@ -120,7 +120,7 @@
 
             // init
             isPlaying = false;
-            spinButton.className = '';
+            spinButton.className = 'btn';
             timers = [];
         }
     }
