@@ -20,8 +20,8 @@
     //bingoNumでセレクトされた数字をBingo配列から削除する変数
     var delArrayNum = 0;
 
-    var panel1 = document.getElementById('panel1');
     var panel10 = document.getElementById('panel10');
+    var panel1 = document.getElementById('panel1');
     var btn0 = document.getElementById('btn0');
     var spinButton = document.getElementById('spinButton');
 
@@ -55,11 +55,11 @@
         this.className = 'btn inactive';
         btn0.className = 'btn';
 
-        panel1.className = 'panel';
         panel10.className = 'panel';
+        panel1.className = 'panel';
 
-        runSlot(0, panel1);
-        runSlot(1, panel10);
+        runSlot(0, panel10);
+        runSlot(1, panel1);
 
     });
 
@@ -74,8 +74,8 @@
         var num10 = num.substr(1,2); 
 
         //表示
-        panel1.innerHTML = num1;
-        panel10.innerHTML = num10;
+        panel10.innerHTML = num1;
+        panel1.innerHTML = num10;
 
         timers[n] = setTimeout(function() {
             runSlot(n, panel)
@@ -84,11 +84,11 @@
     }
 
     btn0.addEventListener('click', function() {
-        stopSlot(0, panel1 ,panel10, this);
+        stopSlot(0, panel10 ,panel1, this);
     });
 
     //『STOP』ボタン押下後の処理
-    function stopSlot(n, panel1, panel10, btn) {
+    function stopSlot(n, panel10, panel1, btn) {
         if (!isPlaying || results[n] !== undefined) return;
         btn.className = 'btn inactive';
 
