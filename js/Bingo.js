@@ -10,7 +10,6 @@
     })(1, 75);
 
     var timers = [];
-    var results = [];
     var stopCount = 0;
     var isPlaying = false;
 
@@ -58,27 +57,25 @@
         panel10.className = 'panel';
         panel1.className = 'panel';
 
-        runSlot(0, panel10);
-        runSlot(1, panel1);
-
+        runSlot();
     });
 
     //『SPIN』ボタン押下後の処理
-    function runSlot(n, panel) {
+    function runSlot() {
 
         var num = Bingo[Math.floor(Math.random() * Bingo.length)];
         bingoNum = num;
 
         //ランダムで表示されている数字を1のくらいと、10のくらいで分割して表示させる
-        var num1 = num.substr(0,1); 
-        var num10 = num.substr(1,2); 
+        var num10 = num.substr(0,1); 
+        var num1 = num.substr(1,2); 
 
         //表示
-        panel10.innerHTML = num1;
-        panel1.innerHTML = num10;
+        panel10.innerHTML = num10;
+        panel1.innerHTML = num1;
 
-        timers[n] = setTimeout(function() {
-            runSlot(n, panel)
+        timers = setTimeout(function() {
+            runSlot()
         }, 25);
 
     }
@@ -89,14 +86,13 @@
 
     //『STOP』ボタン押下後の処理
     function stopSlot(n, panel10, panel1, btn) {
-        if (!isPlaying || results[n] !== undefined) return;
+        if (!isPlaying) return;
         btn.className = 'btn inactive';
 
         soundManager.stopDrum();
         soundManager.playCymbal();
 
-        clearTimeout(timers[n]);
-        clearTimeout(timers[n+1]);
+        clearTimeout(timers);
 
         //ランダムで選択された数字bingoNumをBingo配列から選定
         delArrayNum = Bingo.indexOf(bingoNum);
@@ -121,7 +117,7 @@
             // init
             isPlaying = false;
             spinButton.className = 'btn';
-            timers = [];
+            timers = 0;
         }
     }
 
