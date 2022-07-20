@@ -36,7 +36,7 @@
                 divWrapper = fragment.appendChild(document.createElement("div"));
             }
             var numDiv = divWrapper.appendChild(document.createElement("div"));
-            numDiv.className = "bingo";
+            numDiv.className = "bingoNo";
             numDiv.innerHTML = elem;
         });
         var result = document.getElementById("result");
@@ -108,11 +108,11 @@
             stopCount = 0;
             spinButton.className = '';
 
-            var bingoDiv = document.querySelectorAll(".bingo");
+            var bingoDiv = document.querySelectorAll(".bingoNo");
 
             // change color
             bingoDiv[bingoNum-1].innerHTML;
-            bingoDiv[bingoNum-1].className = 'bingo unmatched';
+            bingoDiv[bingoNum-1].className = 'bingoNo unmatched';
 
             // init
             isPlaying = false;
