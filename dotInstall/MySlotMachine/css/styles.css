@@ -4,6 +4,7 @@ body {
   font-weight: bold;
   font-family: Arial, sans-serif;
 }
+
 main {
   width: 300px;
   background: #ecf0f1;
@@ -14,6 +15,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
 .panel img {
   width: 90px;
   height: 110px;
@@ -48,3 +50,10 @@ main {
   margin: 0 auto;
 }
 
+.unmatched {
+  opacity: 0.5;
+}
+
+.inactive {
+  opacity: 0.5;
+}
